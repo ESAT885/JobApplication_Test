@@ -8,8 +8,13 @@ namespace JobApplicationLibrary
 {
     public class ApplicationEvaluator
     {
+        private const int MinAge = 18;
         public ApplicationResult EvaluateApplication(Models.JobApplication form)
         {
+            if (form.Application.Age< MinAge)
+            {
+                return ApplicationResult.AutoRejected;
+            }
             return ApplicationResult.AutoAccepted;
         }
     }
